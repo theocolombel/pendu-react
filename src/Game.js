@@ -21,7 +21,7 @@ class Game extends Component {
     }
   }
 
-  /*genere un nouveau mot*/
+
   generateWord = rand =>{
     this.setState({
       word : dictionnary[rand],
@@ -30,8 +30,7 @@ class Game extends Component {
     })
   }
 
-  /*verifie si la lettre existe et si oui elle remplace le "_" dans misteryword
-  au bon index */
+  
   searchChar(selectedLetter,word){
     let replaceWord = this.state.misteryWord
     if(word.includes(selectedLetter)){
@@ -45,7 +44,7 @@ class Game extends Component {
     setTimeout(() => this.setState({ misteryWord: replaceWord }), VISUAL_PAUSE_MSECS)
   }
 
-  /*met à jour le composant selectedLetter et lance la méthode searchChar */
+ 
   handleKeyClick = index => {
     this.setState({
       selectedLetter : alphabet[index],
@@ -53,7 +52,7 @@ class Game extends Component {
     this.searchChar(this.state.selectedLetter,this.state.word)
   }
 
-  /*verifie si le mot est trouvé */
+
   continue(){
     return this.state.misteryWord===this.state.word
   }
